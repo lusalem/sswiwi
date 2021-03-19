@@ -3,7 +3,7 @@
     "loglevel": "debug"
   },
   "inbounds": [{
-    "port": 8443,
+    "port": 80,
     "protocol": "vmess",
     "sniffing":{
     "enabled":true,
