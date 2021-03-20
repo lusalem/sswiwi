@@ -1,0 +1,61 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+		{
+        "type": "field",
+        "outboundTag": "IP6_out",
+        "domain": ["geosite:netflix"] // netflix 走 IPv6
+		},
+		{
+        "type": "field",
+        "outboundTag": "IP4_out",
+        "network": "udp,tcp"// 其余走 IPv4
+		}
+    ]
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 80,
+            "protocol": "vmess",
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls"
+                ]
+            },			
+            "settings": {
+                "clients": [
+                    {
+                        "id": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a",
+                        "alterId":1
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "tag":"IP4_out",
+            "protocol":"freedom",
+            "settings":{
+
+            }
+        },
+        {
+            "tag":"IP6_out",
+            "protocol":"freedom",
+            "settings":{
+                "domainStrategy":"UseIPv6"
+            }
+        }
+    ]
+}
