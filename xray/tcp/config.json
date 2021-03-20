@@ -5,30 +5,20 @@
     "routing": {
         "domainStrategy": "AsIs",
         "rules": [
-		{
-        "type": "field",
-        "outboundTag": "IP6_out",
-        "domain": ["geosite:netflix"] // netflix 走 IPv6
-		},
-		{
-        "type": "field",
-        "outboundTag": "IP4_out",
-        "network": "udp,tcp"// 其余走 IPv4
-		}
-    ]
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
     },
     "inbounds": [
         {
             "listen": "0.0.0.0",
             "port": 80,
             "protocol": "vmess",
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls"
-                ]
-            },			
             "settings": {
                 "clients": [
                     {
@@ -44,18 +34,12 @@
     ],
     "outbounds": [
         {
-            "tag":"IP4_out",
-            "protocol":"freedom",
-            "settings":{
-
-            }
+            "protocol": "freedom",
+            "tag": "direct"
         },
         {
-            "tag":"IP6_out",
-            "protocol":"freedom",
-            "settings":{
-                "domainStrategy":"UseIPv6"
-            }
+            "protocol": "blackhole",
+            "tag": "block"
         }
     ]
 }
