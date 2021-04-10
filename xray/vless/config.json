@@ -47,8 +47,8 @@
                     ],
                     "certificates": [
                         {
-                            "certificateFile": "/root/tls/fullchain.crt", // 换成你的证书，绝对路径
-                            "keyFile": "/root/tls/private.key" // 换成你的私钥，绝对路径
+                            "certificateFile": "/etc/xray/fullchain.crt", // 换成你的证书，绝对路径
+                            "keyFile": "/etc/xray/private.key" // 换成你的私钥，绝对路径
                         }
                     ]
                 }
