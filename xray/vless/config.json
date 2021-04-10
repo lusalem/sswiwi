@@ -9,7 +9,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "", // 填写你的 UUID
+                        "id": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a", // 填写你的 UUID
                         "flow": "xtls-rprx-direct",
                         "level": 0,
                         "email": "love@example.com"
@@ -22,17 +22,17 @@
                         "xver": 1
                     },
                     {
-                        "path": "/websocket", // 必须换成自定义的 PATH
+                        "path": "/vlessws", // 必须换成自定义的 PATH
                         "dest": 1234,
                         "xver": 1
                     },
                     {
-                        "path": "/vmesstcp", // 必须换成自定义的 PATH
+                        "path": "/salemtcp", // 必须换成自定义的 PATH
                         "dest": 2345,
                         "xver": 1
                     },
                     {
-                        "path": "/vmessws", // 必须换成自定义的 PATH
+                        "path": "/salemws", // 必须换成自定义的 PATH
                         "dest": 3456,
                         "xver": 1
                     }
@@ -47,8 +47,8 @@
                     ],
                     "certificates": [
                         {
-                            "certificateFile": "/path/to/fullchain.crt", // 换成你的证书，绝对路径
-                            "keyFile": "/path/to/private.key" // 换成你的私钥，绝对路径
+                            "certificateFile": "/root/tls/fullchain.crt", // 换成你的证书，绝对路径
+                            "keyFile": "/root/tls/private.key" // 换成你的私钥，绝对路径
                         }
                     ]
                 }
@@ -61,7 +61,7 @@
             "settings": {
                 "clients": [
                     {
-                        "password": "", // 填写你的密码
+                        "password": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a", // 填写你的密码
                         "level": 0,
                         "email": "love@example.com"
                     }
@@ -87,7 +87,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "", // 填写你的 UUID
+                        "id": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a", // 填写你的 UUID
                         "level": 0,
                         "email": "love@example.com"
                     }
@@ -99,7 +99,7 @@
                 "security": "none",
                 "wsSettings": {
                     "acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行
-                    "path": "/websocket" // 必须换成自定义的 PATH，需要和分流的一致
+                    "path": "/vlessws" // 必须换成自定义的 PATH，需要和分流的一致
                 }
             }
         },
@@ -110,7 +110,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "", // 填写你的 UUID
+                        "id": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a", // 填写你的 UUID
                         "level": 0,
                         "email": "love@example.com"
                     }
@@ -125,7 +125,7 @@
                         "type": "http",
                         "request": {
                             "path": [
-                                "/vmesstcp" // 必须换成自定义的 PATH，需要和分流的一致
+                                "/salemtcp" // 必须换成自定义的 PATH，需要和分流的一致
                             ]
                         }
                     }
@@ -139,7 +139,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "", // 填写你的 UUID
+                        "id": "9d0a75d2-f747-4afa-b43f-d208af9e8f9a", // 填写你的 UUID
                         "level": 0,
                         "email": "love@example.com"
                     }
@@ -150,7 +150,7 @@
                 "security": "none",
                 "wsSettings": {
                     "acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行
-                    "path": "/vmessws" // 必须换成自定义的 PATH，需要和分流的一致
+                    "path": "/salemws" // 必须换成自定义的 PATH，需要和分流的一致
                 }
             }
         }
